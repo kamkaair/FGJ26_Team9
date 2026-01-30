@@ -4,27 +4,27 @@
 ### Renpy ###
 # Don't track content of these folders #
 ########################################
-cache/
-saves/
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/cache/
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/saves/
 
 # Compiled source #
 ###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/*.com
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/*.class
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/*.dll
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/*.exe
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/*.o
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/*.so
 
-*.rpyc
-*.rpymc
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask*.rpyc
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask*.rpymc
 
 
 # The log file and other misc things #
 ######################################
-log.txt
-errors.txt
-traceback.txt
-files.txt
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/log.txt
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/errors.txt
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMaskt/raceback.txt
+IGotTransportedIntoAnotherWorldAndBecameItsRulerThanksToThisMysteriousMask/files.txt
 
 # End of https://www.toptal.com/developers/gitignore/api/renpy
