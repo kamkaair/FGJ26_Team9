@@ -2,25 +2,28 @@ label test_scene2:
     scene bg plant
     with dissolve
 
+    define pov = Character("[povname]")
+
+    python:
+        povname = renpy.input("What is your name?", length=32)
+        povname = povname.strip()
+
+        if not povname:
+            povname = "Empty Name"
+
+    pov "My name is [povname]!"
+
     menu:
-        #jump ch1
-
-        #jump ch2
-
         "Whats up"
-        "Option 1":
-            "Great choice."
-            jump ch1
-
-        "Option 2":
-            "BAD choice, feller"
+        "ch1":
+            "Great choice, [povname]."
             jump ch1
         
-        "Option 3":
-            "Mediocre choice"
+        "ch1 alt":
+            "Mediocre choice, [povname]"
             jump ch1
 
-        "Option 4":
+        "ch2":
             jump ch2  
 
     label ch1:

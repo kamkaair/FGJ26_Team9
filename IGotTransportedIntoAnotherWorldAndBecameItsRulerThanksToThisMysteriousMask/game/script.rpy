@@ -4,44 +4,62 @@
 # name of the character.
 
 define e = Character("Eileen")
-image testImage = "images/truckLogo.png" # Load images like this
+image testImage = "images/truckLogo.png" # Load images like this, used inside the scene 1
 
-
-
+define health = 100
 # The game starts here.
+label takeDamage:
+    python:
+        if(health <= 0):
+            message = "You're already dead, stop."
+        else:
+            newHealth = health - 25
+            health = newHealth
+            message = "Took damage. Remaining: " + str(newHealth) 
+    "[message]"
+    
 
 label start:
-
     # Test scenes
     menu:
         "Which scene do you want to play?"
         "All of them:":
             call test_scene1
             call test_scene2
-        "Test scene 1:":
+        "Conversation, sprite rendering, movement, backgrounds, transitions:":
             jump test_scene1
-        "Test scene 2:":
+        "Input name and Menu:":
             jump test_scene2
+        "Take damage:":
+            "Aiiii"
+            call takeDamage
+        "None of them":
+            jump continue   
+
+    #define pov = Character("[povname]")
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
     # Default stuff
-    scene bg room
+    #scene bg room
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    #show eileen happy
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    #e "You've created a new Ren'Py game."
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    #e "Once you add a story, pictures, and music, you can release it to the world!"
 
     # This ends the game.
 
+    return
+
+label continue:
     return
