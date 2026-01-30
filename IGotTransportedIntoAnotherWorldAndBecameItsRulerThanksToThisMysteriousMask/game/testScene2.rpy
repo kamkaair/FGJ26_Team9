@@ -17,6 +17,8 @@ label test_scene1:
 
     # image cool happy = "images/cool happy.png"
     show cool angry
+        #xalign 0.5
+        #yalign 1.0
     e "This is really PISSING me off"
 
     show cool angry at right
