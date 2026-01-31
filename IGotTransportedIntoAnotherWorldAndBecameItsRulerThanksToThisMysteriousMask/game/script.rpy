@@ -16,7 +16,7 @@ define e = Character("Eileen")
 
 define health = 100
 # The game starts here.
-label takeDamage:c
+label takeDamage:
     python:
         if(health <= 0):
             message = "You're already dead, stop."
@@ -29,17 +29,22 @@ label takeDamage:c
     jump start # looks kinda scary to call main again, but works without problems(?)
     
 label setName:
-    define pov = Character("[povname]")
 
-    python:
-        povname = renpy.input("What is your name?", length=32)
-        povname = povname.strip()
+    menu:
+        "Would you like to change your name? (Protagonist-kun)"
+        "Yes":
+            python:
+                povname = renpy.input("Please enter your name: ", length=32)
+                povname = povname.strip()
 
-        if not povname:
-            povname = "Empty Name"
+                if povname:
+                    mc = Character(name=povname, who_color=CharactersInfo[0][2])
+                else:
+                    mc = Character(name=CharactersInfo[0][0], who_color=CharactersInfo[0][2])
+        "No":
+            $ mc = Character(name=CharactersInfo[0][0], who_color=CharactersInfo[0][2])
 
-    pov "My name is [povname]!"  
-
+    
     return # remember to return, otherwise we are in loop
 
 #layeredimage coolguy:
@@ -47,30 +52,12 @@ label setName:
 
 label start:
 
-    show susan
-    sg "Hello"
-
-    mc "Moi"
-
-    show susan shy
-    sg "You are so handsome"
-
-    show tessa at left
-    cg "Meowwww!"
-    show susan at center
-    pg "Hello" 
-    show susan at right
-    lg "I am the light"
-
-    bm "I am boos man!"
-    # Test scenes
-
     menu:
         "Which scene do you want to play?"
         "Main story:":
-            #call setName
-            #jump a0e1
-            jump a0e2
+            call setName
+            jump a0e1
+            #jump a0e2
         "Conversation, sprite rendering, movement, backgrounds, transitions:":
             jump test_scene1
         "Input name and Menu:":
