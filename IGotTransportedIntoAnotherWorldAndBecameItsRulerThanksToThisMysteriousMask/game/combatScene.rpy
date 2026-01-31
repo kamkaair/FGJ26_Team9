@@ -1,129 +1,129 @@
-"""
-define enemyHealth = 200
-define playerHealth = 200
-
 init python:
 
-    import math
+    import math, random
 
-    class Appearing(renpy.Displayable):
+    # Player stats
+    playerHP = 100
+    playerAttack = 20
+    isPlayerDefending = False
 
-        def __init__(self, child, opaque_distance, transparent_distance, **kwargs):
+    # Enemy stats
+    enemyHP = 100
+    enemyAttack = 15
+    isEnemyDefending = False
 
-            # Pass additional properties on to the renpy.Displayable
-            # constructor.
-            super(Appearing, self).__init__(**kwargs)
+    # Whose turn?
+    current_turn = "player"
 
-            # The child.
-            self.child = renpy.displayable(child)
+    def attack(damage, hp, defending):
+        newDamage = math.floor(damage)
+        if defending:
+            newDamage //= 2
 
-            # The distance at which the child will become fully opaque, and
-            # where it will become fully transparent. The former must be less
-            # than the latter.
-            self.opaque_distance = opaque_distance
-            self.transparent_distance = transparent_distance
+        hp -= newDamage
+        hp = max(hp, 0)
 
-            # The alpha channel of the child.
-            self.alpha = 0.0
+        return hp
 
-            # The width and height of us, and our child.
-            self.width = 0
-            self.height = 0
+    def reset_combat(inEnemyHP, inEnemyDamage):
+        global playerHP, enemyHP
+        global isPlayerDefending, isEnemyDefending
+        global currentTurn
 
-        def render(self, width, height, st, at):
+        playerHP = 100
+        enemyHP = inEnemyHP
+        enemyAttack = inEnemyDamage
+        isPlayerDefending = False
+        isEnemyDefending = False
 
-            # Create a transform, that can adjust the alpha channel of the
-            # child.
-            t = Transform(child=self.child, alpha=self.alpha)
+        currentTurn = "player"
 
-            # Create a render from the child.
-            child_render = renpy.render(t, width, height, st, at)
+    def player_attack_enemy():
+        global enemyHP, currentTurn
 
-            # Get the size of the child.
-            self.width, self.height = child_render.get_size()
+        damage = playerAttack * random.uniform(0.75, 1)
+        enemyHP = attack(damage, enemyHP, isEnemyDefending)
 
-            # Create the render we will return.
-            render = renpy.Render(self.width, self.height)
+        currentTurn = "enemy"
 
-            # Blit (draw) the child's render to our render.
-            render.blit(child_render, (0, 0))
+    def player_defend():
+        global isPlayerDefending, currentTurn
+        isPlayerDefending = True
+        currentTurn = "enemy"
 
-            # Return the render.
-            return render
+    def enemy_turn():
+        global playerHP, isPlayerDefending, isEnemyDefending, currentTurn
 
-        def event(self, ev, x, y, st):
+        isEnemyDefending = False
 
-            # Compute the distance between the center of this displayable and
-            # the mouse pointer. The mouse pointer is supplied in x and y,
-            # relative to the upper-left corner of the displayable.
-            distance = math.hypot(x - (self.width / 2), y - (self.height / 2))
+        # Simple AI: random choice
+        if random.choice(["attack", "defend"]) == "attack":
+            damage = enemyAttack * random.uniform(0.75, 1)
+            print("enemy attack")
+            player_hp = attack(damage, playerHP, isPlayerDefending)
 
-            # Base on the distance, figure out an alpha.
-            if distance <= self.opaque_distance:
-                alpha = 1.0
-            elif distance >= self.transparent_distance:
-                alpha = 0.0
-            else:
-                alpha = 1.0 - 1.0 * (distance - self.opaque_distance) / (self.transparent_distance - self.opaque_distance)
+        else:
+            print("enemy defending")
+            isEnemyDefending = True
 
-            # If the alpha has changed, trigger a redraw event.
-            if alpha != self.alpha:
-                self.alpha = alpha
-                renpy.redraw(self, 0)
+        isPlayerDefending = False
+        currentTurn = "player"
 
-            # Pass the event to our child.
-            return self.child.event(ev, x, y, st)
+screen combat_ui():
 
-        def visit(self):
-            return [ self.child ]
+    frame:
+        xalign 0.5
+        yalign 0.75
+        padding (80, 80)
 
+        vbox:
+            spacing 40
 
-init python:
-    import random
+            text "Player HP: [playerHP]"
+            text "Enemy HP: [enemyHP]"
 
-    def checkWin():
-        if(enemyHealth and playerHealth <= 0):
-            "death"
+            if current_turn == "player":
+                text "Your Turn"
+
+                hbox:
+                    spacing 40
+
+                    textbutton "Attack" action Function(player_attack_enemy)
+                    textbutton "Defend" action Function(player_defend)
+
+                    if(current_turn == "enemy"):
+                        text "Enemy Turn..."
+
+label combat(enemySprite, inEnemyHP, inEnemyDamage):
+    define eCombat = Character(None, window_background = None,
+    what_size=28, what_outline=[(1, "#008000", 0,0)],
+    what_xalign=0.5, what_textalign=0.5, what_layout='subtitle')
+
+    image enemySprite = "[enemySprite]"
+    show MainCharacter at left
+    show enemySprite at right
+
+    $ reset_combat(inEnemyHP, inEnemyDamage)
+    show screen combat_ui
     
-        
+    while playerHP > 0 and enemyHP > 0:
 
-label dealDamage(victim = 0):
-        newHealth = victim - 25
-    call checkWin()
+        if current_turn == "enemy":
+            ##hide screen combat_ui
+            $ enemy_turn()
+            $ renpy.pause(2.0)
 
-label enemyTurn:
-    #init python:
-        #random_float = random.random()
-        #if(random_float < 0.5):
-            #dealDamage(playerHealth)
-        
-        #else:
-            #"Defend"
-        
-    jump checkWin()
-    jump playerTurn
+        else:
+            ##show screen combat_ui
+            $ renpy.pause(0.1)
 
-label playerTurn:
-    menu:
-        "Attack":
-            call dealDamage(enemyHealth)
-        "Defend":
-            call dealDamage(enemyHealth)
-    jump enemyTurn
-        
+    hide screen combat_ui
+    hide MainCharacter at left
+    hide enemySprite at right
 
-label combatScene:
-    scene bg cool
-    with dissolve
-
-    show MainCharacter long_hat at left
-    show susan
-
-    "Combat has started, prepare yourself!"
-    jump playerTurn
+    if playerHP <= 0:
+        "You were defeated."
+    else:
+        "You won the battle!"
 
     return
-
-label endCombat:
-    return
-"""
