@@ -39,11 +39,14 @@ label setName:
 
                 if povname:
                     mc = Character(name=povname, who_color=CharactersInfo[0][2])
+                    mc_color = "{color=#dda732}" + povname + "{/color}"
+                    
                 else:
                     mc = Character(name=CharactersInfo[0][0], who_color=CharactersInfo[0][2])
+            
         "No":
             $ mc = Character(name=CharactersInfo[0][0], who_color=CharactersInfo[0][2])
-
+    
     
     return # remember to return, otherwise we are in loop
 
@@ -51,22 +54,13 @@ label setName:
     #attribute 
 
 label start:
-
+    call setName
     menu:
         "Which scene do you want to play?"
         "Main story:":
-            call setName
             jump a0e1
-            #jump a0e2
-        "Conversation, sprite rendering, movement, backgrounds, transitions:":
-            jump test_scene1
-        "Input name and Menu:":
-            jump test_scene2
-        "Layer test:":
-            jump layer_test
-        "Take damage:":
-            "Aiiii"
-            call takeDamage
+        "Act1":
+            jump a1e1
         "None of them":
             jump continue  
 
