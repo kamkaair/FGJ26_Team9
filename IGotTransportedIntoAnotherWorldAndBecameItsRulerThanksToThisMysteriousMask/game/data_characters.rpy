@@ -17,3 +17,11 @@ define pg = Character(name=CharactersInfo[3][0], who_color=CharactersInfo[3][2])
 define lg = Character(name=CharactersInfo[4][0], who_color=CharactersInfo[4][2])
 define cg = Character(name=CharactersInfo[5][0], who_color=CharactersInfo[5][2])
 define bm = Character(name=CharactersInfo[6][0], who_color=CharactersInfo[6][2])
+
+define mc_color = "{color=#dda732}" + CharactersInfo[0][0] + "{/color}"
+define mk_color = "{color=#d30de1}" + CharactersInfo[1][0] + "{/color}"
+define sg_color = "{color=#3c92cb}" + CharactersInfo[2][0] + "{/color}"
+define pg_color = "{color=#13c52b}" + CharactersInfo[3][0] + "{/color}"
+define lg_color = "{color=#fdef2b}" + CharactersInfo[4][0] + "{/color}"
+define cg_color = "{color=#c78a06}" + CharactersInfo[5][0] + "{/color}"
+define bm_color = "{color=#c83702}" + CharactersInfo[6][0] + "{/color}"
