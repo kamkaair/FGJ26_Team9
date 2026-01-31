@@ -13,7 +13,7 @@ init python:
     isEnemyDefending = False
 
     # Whose turn?
-    current_turn = "player"
+    currentTurn = "player"
 
     def attack(damage, hp, defending):
         newDamage = math.floor(damage)
@@ -26,7 +26,7 @@ init python:
         return hp
 
     def reset_combat(inEnemyHP, inEnemyDamage):
-        global playerHP, enemyHP
+        global playerHP, enemyHP, enemyAttack
         global isPlayerDefending, isEnemyDefending
         global currentTurn
 
@@ -39,7 +39,7 @@ init python:
         currentTurn = "player"
 
     def player_attack_enemy():
-        global enemyHP, currentTurn
+        global enemyHP, currentTurn, enemyHP
 
         damage = playerAttack * random.uniform(0.75, 1)
         enemyHP = attack(damage, enemyHP, isEnemyDefending)
@@ -60,7 +60,7 @@ init python:
         if random.choice(["attack", "defend"]) == "attack":
             damage = enemyAttack * random.uniform(0.75, 1)
             print("enemy attack")
-            player_hp = attack(damage, playerHP, isPlayerDefending)
+            playerHP = attack(damage, playerHP, isPlayerDefending)
 
         else:
             print("enemy defending")
@@ -82,7 +82,7 @@ screen combat_ui():
             text "Player HP: [playerHP]"
             text "Enemy HP: [enemyHP]"
 
-            if current_turn == "player":
+            if currentTurn == "player":
                 text "Your Turn"
 
                 hbox:
@@ -91,7 +91,7 @@ screen combat_ui():
                     textbutton "Attack" action Function(player_attack_enemy)
                     textbutton "Defend" action Function(player_defend)
 
-                    if(current_turn == "enemy"):
+                    if(currentTurn == "enemy"):
                         text "Enemy Turn..."
 
 label combat(enemySprite, inEnemyHP, inEnemyDamage):
@@ -108,7 +108,7 @@ label combat(enemySprite, inEnemyHP, inEnemyDamage):
     
     while playerHP > 0 and enemyHP > 0:
 
-        if current_turn == "enemy":
+        if currentTurn == "enemy":
             ##hide screen combat_ui
             $ enemy_turn()
             $ renpy.pause(2.0)
