@@ -3,6 +3,15 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+# Layering technique 2
+layeredimage MainCharacter:
+    always "images/cool.png"
+
+    group hat:
+        attribute round_hat "images/round hat.png"
+        attribute long_hat "images/long hat.png"
+        attribute empty_hat "images/empty hat.png"
+
 define e = Character("Eileen")
 
 define health = 100
@@ -42,8 +51,9 @@ label start:
     menu:
         "Which scene do you want to play?"
         "Main story:":
-            call setName
-            jump a0e1
+            #call setName
+            #jump a0e1
+            jump a0e2
         "Conversation, sprite rendering, movement, backgrounds, transitions:":
             jump test_scene1
         "Input name and Menu:":
