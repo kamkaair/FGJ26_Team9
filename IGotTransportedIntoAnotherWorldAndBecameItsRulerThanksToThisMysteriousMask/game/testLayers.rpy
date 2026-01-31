@@ -1,7 +1,21 @@
 define coolChar = Character(
     "CoolGuy", color="ffcccc", what_size=28)
 
-image coolCharacter = "images/cool.png"
+# Layering technique 2
+layeredimage MainCharacter:
+    always "images/cool.png"
+
+    group hat:
+        attribute round_hat "images/round hat.png"
+        attribute long_hat "images/long hat.png"
+        attribute empty_hat "images/empty hat.png"
+
+#python:
+    #from enum import Enum
+    #class Hats(Enum):
+        #NO_HAT = 0
+        #ROUND_HAT = 1
+        #LONG_HAT = 2
 
 # Layering technique 1
 image character = Composite(
@@ -10,33 +24,28 @@ image character = Composite(
 (0, 0), "images/[current_hat] hat.png"
 )
 
-# Layering technique 2
-layeredimage characterLayer:
-    always: 
-        "coolCharacter"
-    group hat:
-        attribute long_Hat default:
-            "images/long hat.png"
-
-        attribute round_Hat:
-            "images/round hat.png"
-
 label layer_test:
-    $hat_type = ["round", "long", "nohat"]
+    $hat_type = ["empty", "round", "long"]
     $current_hat = hat_type[0]
 
     # Uses Composite() for grouping sprites for characters
     show character at left
-    e "First hat"
+    e "No hat"
 
     $current_hat = hat_type[1]
+    e "First"
+
+    $current_hat = hat_type[2]
     e "Second"
 
     # Uses layers for for grouping sprites
-    show characterLayer long_Hat at right
+    show MainCharacter long_hat at right
     e "Layer: long hat"
 
-    show characterLayer round_Hat at right
+    show MainCharacter round_hat at right
     e "Layer: round hat"
+
+    show MainCharacter empty_hat at right
+    e "Layer: no hat"
 
     return

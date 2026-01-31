@@ -1,7 +1,7 @@
 label test_scene2:
     scene bg plant
     with dissolve
-
+    
     define pov = Character("[povname]")
 
     python:
