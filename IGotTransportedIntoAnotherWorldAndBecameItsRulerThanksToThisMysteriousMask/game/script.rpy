@@ -20,6 +20,23 @@ label takeDamage:
     
 
 label start:
+
+    show susan
+    sg "Hello"
+
+    mc "Moi"
+
+    show susan shy
+    sg "You are so handsome"
+
+    show tessa at left
+    cg "Meowwww!"
+    show susan at center
+    pg "Hello" 
+    show susan at right
+    lg "I am the light"
+
+    bm "I am boos man!"
     # Test scenes
     menu:
         "Which scene do you want to play?"

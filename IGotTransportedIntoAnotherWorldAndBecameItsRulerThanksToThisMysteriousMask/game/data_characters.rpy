@@ -10,7 +10,7 @@ init:
             ["Man Behind The Scene","Big Boss-kun","#c83702"]   #BOSS_MAN = 6
             ] 
 
-define mc = None
+define mc = Character(name=CharactersInfo[0][0], who_color=CharactersInfo[0][2])
 define sg = Character(name=CharactersInfo[2][0], who_color=CharactersInfo[2][2])
 define pg = Character(name=CharactersInfo[3][0], who_color=CharactersInfo[3][2])
 define lg = Character(name=CharactersInfo[4][0], who_color=CharactersInfo[4][2])
