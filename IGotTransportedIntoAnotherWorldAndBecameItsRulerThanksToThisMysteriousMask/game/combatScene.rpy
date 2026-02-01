@@ -162,7 +162,7 @@ label combat(enemySprite, inEnemyHP, inEnemyDamage):
     with vpunch
 
     image enemySprite = "[enemySprite]"
-    show MainCharacter at left
+    show protagonist mask surprised at left
     show enemySprite at right
 
     $ reset_combat(inEnemyHP, inEnemyDamage)
