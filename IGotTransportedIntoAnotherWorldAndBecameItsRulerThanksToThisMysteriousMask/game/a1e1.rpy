@@ -68,8 +68,8 @@ label a1e1:
                     "You managed to kick the slime!"
                     jump slime_fight
                 else:
-                    "{color=#d11a0d}You Took damage{/color}"
                     show protagonist mask cry ###
+                    "{color=#d11a0d}You Took damage{/color}"
                     jump slime_fight
             "{color=#cfa406}Punch{/color}":
                 $ my_num = renpy.random.randint(2,4)
@@ -111,7 +111,21 @@ label a1e1:
                 
 label slime_waifu:
     #slime explodes
-    show susan at center
+    show white 
+
+
+    "As their punch connects, the slime gets covered in bright light"
+    "Protagonist-kun scrambles further back, worried about the slime" 
+    "exploding and covering them in its nastiness."
+
+    hide white with dissolve
+    show susan:
+        xalign 0.3
+        yalign 1.0 
+    with dissolve
+    hide slime
+
+    show protagonist mask surprised at left 
     sg "Ow ow ow…"
     sg "Huh? I seem to have {size=+5}{i}transformed{/i}{/size} somehow?"
     sg "Uhm…"
