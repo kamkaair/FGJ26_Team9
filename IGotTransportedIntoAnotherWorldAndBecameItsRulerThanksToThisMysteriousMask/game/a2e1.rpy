@@ -63,5 +63,8 @@ label a2e1:
 
     "Protagonist-kun escapes from the tavern, and runs straight out of the town."
 
-    #jump a2e2
+    scene bg black # PLACEHOLDER
+    with dissolve
+
+    jump a2e2
     
