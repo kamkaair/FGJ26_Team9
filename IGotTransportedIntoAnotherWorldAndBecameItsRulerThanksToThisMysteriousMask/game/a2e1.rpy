@@ -10,58 +10,81 @@ label a2e1:
     with dissolve
 
     #show MainCharacter empty_hat at center
-    show protagonist mask happy at center:
-        zoom 1.2
-        xalign 0.5
-        yalign 3.2
+    show protagonist mask happy at center
 
-    show susan at center:
-        xalign 0.9
-        yalign 1.0
+    #show ayla neutral at left:
 
-    show ayla neutral at center:
-        xalign 0.1
-        yalign 1.0
+    "Our beloved [mc_color] wakes up the next day when the sun is already high in the sky, feeling refreshed"
 
-    "Our beloved [mc_color] wakes up around mid-day, feeling refreshed."
+    show protagonist mask at center
 
-    mc "Ahh. That was some of the best sleep I've ever had. I wonder how the girls are doing..."
+    mc "Ahh, that was some of the best sleep I’ve ever had "
+    "I wonder how the girls are doing..."
 
-    "[mc_color] makes their way to the main area of the tavern, where [pg_color] and [sg_color] are enjoying lunch."
+    hide protagonist mask
+
+    "[mc_color] makes their way to the main area of the tavern, where [pg_color] and [sg_color] are enjoying lunch"
+    show susan at right
+    show ayla neutral at left
 
     sg "...and then they punched me! And I got turned into a girl!"
-    "[sg_color] exclaims."
 
-    pg "So that's how they cured you from that awful curse. It's great that you ran into a great hero, such as the Masked One..."
-    "[pg_color] replies."
+    pg "So, that’s how they cured you from that awful curse."
 
-    sg "{size=-7}Ah, no. I-I was {i}never{/i} cursed...{/size}"
-    "[sg_color] mumbles."
+    show ayla happy at left
+    pg "“It’s great that you ran into a great hero, such as the Masked One"
 
-    mc "Goood morning girls!"
-    "[mc_color] greets them."
+    show ayla surprised at left
+    sg "Ah, no. I-I was never cursed…"
 
-    pg "Ara ara. You finally woke up! I was worried that someone had assassinated you in your sleep or something..."
+    show protagonist mask happy at center
+    mc "Gooood morning girls!"
 
-    mc "Assassinated..?"
-    "[mc_color] asks, worried."
+    show ayla happy at left
+    pg "Ara ara. You finally woke up!"
 
-    pg "In any case, there were some reports of a monster made of blinding light wreaking havoc in a nearby forest. Sounds like a job for you,"
-    "[pg_color] tells them."
+    show ayla neutral at left
+    pg "I was worried that someone had assassinated you in your sleep or something…"
 
-    "[mc_color]'s stomach rumbles loudly."
-    
-    mc "I'll go after I've eaten breakfast..?"
-    "{color=#dda732}They ask.{/color}" # This is kinda dumb way of getting the character's color, but it shall be fine for now.
 
-    pg "Nonsense! You must go straight away. Otherwise the monster might kill someone!"
+    menu:
+        "Assassinated...?":
+            show protagonist mask surprised at center
+            mc "Assassinated..?"
+            show ayla surprised at left
+            pg "Oh, yes! You’re not from around here."
+            show ayla neutral at left
+            pg "Assassinations of stronger people are pretty common. It’s an easy way to weed out the competition for Town Mayor’s Selection."
 
-    mc "{i}But I'm hungry...{/i}"
+            mc "Oh…"
+            pass
+        "Ignore comment":
+            pass
 
-    pg "{size=+15}NOW!{/size}"
-    "[pg_color] yells."
+    show ayla neutral at left
+    pg "In any case, there were some reports of a monster made of lightning wreaking havoc in a nearby forest."
 
-    "Protagonist-kun escapes from the tavern, and runs straight out of the town."
+
+    pg "Sounds like a job for you."
+
+    "[mc_color]’s stomach rumbles loudly."
+
+    show protagonist mask at center
+    mc "I’ll go after I’ve eaten breakfast..?"
+
+    show ayla angry at left
+    pg "Nonsense! You must go straight away!"
+
+    pg "Otherwise the monster might kill someone."
+
+    show protagonist mask cry at center
+    mc "But I’m hungry…"
+
+    pg "NOW!"
+
+    "Narrator: [mc_color] escapes from the tavern, and runs straight out of the town."
+
+    "[mc_color] escapes from the tavern, and runs straight out of the town."
 
     scene bg black # PLACEHOLDER
     with dissolve

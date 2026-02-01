@@ -10,7 +10,7 @@ label a2e2:
     with dissolve
 
     #show MainCharacter empty_hat at center
-    show MainCharacter empty_hat at center:
+    show protagonist mask at center:
         zoom 1.2
         xalign 0.5
         yalign 3.2
@@ -19,7 +19,7 @@ label a2e2:
         xalign 0.9
         yalign 1.0
 
-    show logo base at center:
+    show ayla neutral at center:
         xalign 0.1
         yalign 1.0
 
@@ -60,21 +60,24 @@ label a2e2:
 
     "As the light moves right next to Protagonist-kun, they punch it."
 
-    call combat("cool angry", 200, 25)
+    call combat("images/valo.png", 100, 15)
 
     mc "Huh… Turns out you can punch a light."
     "A tiny fairy stands up, her wings glowing with the same light that had formed the monster mere moments ago."
 
+    show evelyn surprised at right:
+        zoom 1.3
+
     lg "Ugh… That was the most unpleasant experience of my life!" 
     "she exclaims." 
-    lg "Thank you so so SO much for saving me! I'm [color_lg], a master musician in my clan. If there's anything I can do to repay you, please let me know!"
+    lg "Thank you so so SO much for saving me! I'm [lg_color], a master musician in my clan. If there's anything I can do to repay you, please let me know!"
 
     mc "Oh wow. It's nice to meet you…"
     "Protagonist-kun starts,"
     mc "...{color=#fdef2b}Eve-tan{/color}."
 
     lg "{size=+5}...-tan..?{/size}"
-    "[color_lg] asks, shocked" 
+    "[lg_color] asks, shocked" 
     lg "{size=+5}TAN?!?!{/size} What do you think I am, a baby?!"
 
     mc "Err- Well, you are small and adorable so I thought..."
