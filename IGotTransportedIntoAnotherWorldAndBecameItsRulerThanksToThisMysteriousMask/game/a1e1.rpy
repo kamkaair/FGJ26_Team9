@@ -1,40 +1,60 @@
 label a1e1:
     show bg forest #placeholder
-
+    show protagonist mask at left ###
     mc "{i}Huff, puff. I never thought I would miss Japan's rush-hour trains…{/i}"
-    
+    hide protagonist mask ###
     "[mc_color] had made it to a forest. Generic Fantasy Town should be close by now."
     "Unfortunately, their lack of athleticism seemed to have come back to haunt them."
-
+    show protagonist mask at left ###
     mc "I swear if I ever make it back home I'll start going to the {size=+10}{i}gym.{/i}{/size}"
     mc "Maybe then I can get a girl…"
 
-    "They keep huffing and puffing, completely out of breath as they make their way through the forest." 
+    menu:
+        "Wipe your forehead":
+            "[mc_color] wipes their forehead. It doesn't help much in the summer heat."
+            pass
+        "Pause to take a breath":
+            "[mc_color] stops and leans on their knees. They take a couple deep breaths."
+            "They don't help much."
+            pass
+
+    hide protagonist mask ###
     "{size=+20}Suddenly, they hear {i}gurgling{/i}.{/size}"
+
+    show protagonist mask surprised at left ###
+
+    show slime:
+        xalign 0.75
+        yalign 1.0
+        zoom 0.75
+        linear 1.0 xalign 0.75
+        linear 1.0 xalign 0.5
 
     mc "What's that? Ew!"
 
-    show susan at center:
-        zoom 0.5
-        linear 1.0 zoom 1.5
 
     "They gag as a slime slides next to them."
     "It seems to reach for them, making all kinds of disgusting slime noises as it does so."
 
     mc "Stay back!"
 
-    show susan at center:
-        zoom 1.5
-        linear 1.0 zoom 2.0
-    mc "I said stay back!"
+    show slime:
+        xalign 0.5
+        yalign 1.0
+        zoom 0.75
+        linear 1.0 xalign 0.5
+        linear 1.0 xalign 0.3
 
+    mc "I said stay back!"
+    show protagonist mask angry
     menu:
         "Punch the slime":
-            jump slime_fight
-    
+            pass
+
     define slime_hp = 4
 
     label slime_fight:
+        show protagonist mask
         if(slime_hp <= 0):
             jump slime_waifu
         menu:
@@ -44,19 +64,23 @@ label a1e1:
                 $ slime_num = renpy.random.randint(1,3)
                 if(my_num > slime_num):
                     $ slime_hp -= 2
+                    show protagonist mask angry ###
                     "You managed to kick the slime!"
                     jump slime_fight
                 else:
                     "{color=#d11a0d}You Took damage{/color}"
+                    show protagonist mask cry ###
                     jump slime_fight
             "{color=#cfa406}Punch{/color}":
                 $ my_num = renpy.random.randint(2,4)
                 $ slime_num = renpy.random.randint(1,3)
                 if(my_num > slime_num):
                     $ slime_hp -= 1
+                    show protagonist mask angry ###
                     "You managed punch the slime!"
                     jump slime_fight
                 else:
+                    show protagonist mask cry ###
                     "{color=#d11a0d}You took damage{/color}"
                     jump slime_fight
 
@@ -64,9 +88,11 @@ label a1e1:
                 $ my_num = renpy.random.randint(1,5)
                 $ slime_num = renpy.random.randint(1,3)
                 if(my_num > slime_num):
+                    show protagonist mask surprised
                     "You managed to dodge the slime."
                     jump slime_fight
                 else:
+                    show protagonist mask cry ###
                     "{color=#d11a0d}You took damage{/color}"
                     jump slime_fight
 
@@ -74,9 +100,11 @@ label a1e1:
                 $ my_num = renpy.random.randint(1,3)
                 $ slime_num = renpy.random.randint(1,1)
                 if(my_num > slime_num):
+                    show protagonist mask surprised
                     "You managed to block."
                     jump slime_fight
                 else:
+                    show protagonist mask cry ###
                     "{color=#d11a0d}You took damage{/color}"
                     jump slime_fight
 
