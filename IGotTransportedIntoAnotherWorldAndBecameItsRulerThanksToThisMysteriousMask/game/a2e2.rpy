@@ -1,9 +1,9 @@
 label a2e2:
     image bg black = "#000000"
-    image text = Transform(Text("At the forest:", size=60), yalign=0.5)
+    image textForest = Transform(Text("At the forest:", size=60), yalign=0.5)
 
     show bg black
-    show text
+    show textForest
     "Click to continue..."
 
     scene bg forest # PLACEHOLDER

@@ -1,16 +1,16 @@
 label a2e1:
     image bg black = "#000000"
-    image text = Transform(Text("The next day:", size=60), yalign=0.5)
+    image textTavern = Transform(Text("At the tavern:", size=60), yalign=0.5)
 
     show bg black
-    show text
+    show textTavern
     "Click to continue..."
 
-    scene bg cool # PLACEHOLDER
+    scene bg bar # PLACEHOLDER
     with dissolve
 
     #show MainCharacter empty_hat at center
-    show MainCharacter empty_hat at center:
+    show protagonist mask happy at center:
         zoom 1.2
         xalign 0.5
         yalign 3.2
@@ -19,7 +19,7 @@ label a2e1:
         xalign 0.9
         yalign 1.0
 
-    show logo base at center:
+    show ayla neutral at center:
         xalign 0.1
         yalign 1.0
 
