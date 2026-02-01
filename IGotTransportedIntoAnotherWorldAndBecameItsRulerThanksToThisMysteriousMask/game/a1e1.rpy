@@ -68,7 +68,7 @@ label a1e1:
                     "You managed to kick the slime!"
                     jump slime_fight
                 else:
-                    show protagonist cry ###
+                    show protagonist sad ###
                     "{color=#d11a0d}You Took damage{/color}"
                     jump slime_fight
             "{color=#cfa406}Punch{/color}":
@@ -80,7 +80,7 @@ label a1e1:
                     "You managed punch the slime!"
                     jump slime_fight
                 else:
-                    show protagonist cry ###
+                    show protagonist sad ###
                     "{color=#d11a0d}You took damage{/color}"
                     jump slime_fight
 
@@ -92,7 +92,7 @@ label a1e1:
                     "You managed to dodge the slime."
                     jump slime_fight
                 else:
-                    show protagonist cry ###
+                    show protagonist sad ###
                     "{color=#d11a0d}You took damage{/color}"
                     jump slime_fight
 
@@ -104,7 +104,7 @@ label a1e1:
                     "You managed to block."
                     jump slime_fight
                 else:
-                    show protagonist cry ###
+                    show protagonist sad ###
                     "{color=#d11a0d}You took damage{/color}"
                     jump slime_fight
 
@@ -127,7 +127,7 @@ label slime_waifu:
 
     show protagonist surprised at left 
     sg "Ow ow ow…"
-    show susan  surprised at right
+    show susan surprised at right
     sg "Huh? I seem to have {size=+5}{i}transformed{/i}{/size} somehow?"
     
     mc "Uhm…"
