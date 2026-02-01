@@ -25,7 +25,7 @@ label a2e1:
 
     "[mc_color] makes their way to the main area of the tavern, where [pg_color] and [sg_color] are enjoying lunch"
     show susan at right
-    show ayla neutral at leftsad
+    show ayla neutral at left
 
     sg "...and then they punched me! And I got turned into a girl!"
 
