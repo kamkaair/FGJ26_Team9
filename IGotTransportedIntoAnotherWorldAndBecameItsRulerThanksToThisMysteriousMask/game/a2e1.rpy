@@ -29,29 +29,37 @@ label a2e1:
 
     "[mc_color] makes their way to the main area of the tavern, where [pg_color] and [sg_color] are enjoying lunch."
 
-    sg "...and then they punched me! And I got turned into a girl! {p} [sg_color] exclaims."
+    sg "...and then they punched me! And I got turned into a girl!"
+    "[sg_color] exclaims."
 
-    pg "So that's how they cured you from that awful curse. It's great that you ran into a great hero, such as the Masked One... {p} [pg_color] replies."
+    pg "So that's how they cured you from that awful curse. It's great that you ran into a great hero, such as the Masked One..."
+    "[pg_color] replies."
 
-    sg "{size=-7}Ah, no. I-I was {i}never{/i} cursed...{/size} {p} [sg_color] mumbles."
+    sg "{size=-7}Ah, no. I-I was {i}never{/i} cursed...{/size}"
+    "[sg_color] mumbles."
 
-    mc "Goood morning girls! {p} [mc_color] greets them."
+    mc "Goood morning girls!"
+    "[mc_color] greets them."
 
     pg "Ara ara. You finally woke up! I was worried that someone had assassinated you in your sleep or something..."
 
-    mc "Assassinated..? {p} [mc_color] asks, worried."
+    mc "Assassinated..?"
+    "[mc_color] asks, worried."
 
-    pg "In any case, there were some reports of a monster made of blinding light wreaking havoc in a nearby forest. Sounds like a job for you, {p} [pg_color] tells them."
+    pg "In any case, there were some reports of a monster made of blinding light wreaking havoc in a nearby forest. Sounds like a job for you,"
+    "[pg_color] tells them."
 
     "[mc_color]'s stomach rumbles loudly."
     
-    mc "I'll go after I've eaten breakfast..? {p} {color=#dda732}They ask.{/color}" # This is kinda dumb way of getting the character's color, but it shall be fine for now.
+    mc "I'll go after I've eaten breakfast..?"
+    "{color=#dda732}They ask.{/color}" # This is kinda dumb way of getting the character's color, but it shall be fine for now.
 
     pg "Nonsense! You must go straight away. Otherwise the monster might kill someone!"
 
     mc "{i}But I'm hungry...{/i}"
 
-    pg "{size=+15}NOW!{/size} {p} [pg_color] yells."
+    pg "{size=+15}NOW!{/size}"
+    "[pg_color] yells."
 
     "Protagonist-kun escapes from the tavern, and runs straight out of the town."
 
