@@ -153,27 +153,48 @@ label slime_waifu:
     show protagonist happy
     mc "Are you the first member of my {b}harem{/b}?"
 
+
     sg "{size=+20}...What?{/size}"
     
-    mc "My harem! Since I'm clearly now part of a bad anime plot I must have a harem!"
-    mc "that you transformed from my, erm.." #light tap on the shoulder...
+    mc "My harem!" 
+    mc "Since I'm clearly now part of a bad anime plot {i}I must have a harem{/i}!"
+    mc "And since you transformed from my, erm..." #light tap on the shoulder...
 
+    show protagonist:
+        xalign 0.5
+    menu:
+        "tap lightly on the shoulder":
+            pass
+    
+    show susan angry at right
     sg "Actually, you punched me in the face…"
 
+    show protagonist happy:
+        xalign 0.5
     mc "{size=+20}...then clearly that must mean that I'm destined to have a harem!{/size}"
 
+    show susan at right
     sg "I don't think that's how it works…"
 
-    mc "Nonsense! Now, let's go, Slime-chan!" 
-    mc "The town full of hot anime waifus is waiting for me!"
-    $ sg = Character(name=CharactersInfo[2][1], who_color=CharactersInfo[2][2])
 
-    sg "S-s-slime-chan? Who's that?"
+    mc "Nonsense! Now, let's go, Slime-chan!" 
+
+    mc "The town full of hot anime waifus is waiting for me!"
     
+    show susan surprised at right
+    sg "S-s-slime-chan? Who's that?"
+
+
     mc "Why, you, of course!"
 
-    show bg cool 
+    hide protagonist
+    hide susan 
+    show bg black 
     with dissolve
+    "[mc_color] practically runs into town, dragging the poor [sg_color] girl behind them."
 
-    "[mc_color] practically runs into town, dragging the poor [sg_color] behind them."
+
+    jump a1e2
+
+    
 

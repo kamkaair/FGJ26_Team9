@@ -113,6 +113,42 @@
                 }
             },
             {
+                "scope": "renpy.meta.color.#05b32e",
+                "settings": {
+                    "foreground": "#05b32e"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#d11a0d",
+                "settings": {
+                    "foreground": "#d11a0d"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#3f41d4",
+                "settings": {
+                    "foreground": "#3f41d4"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#cfa406",
+                "settings": {
+                    "foreground": "#cfa406"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#d11212",
+                "settings": {
+                    "foreground": "#d11212"
+                }
+            },
+            {
+                "scope": "renpy.meta.color.#0bc30b",
+                "settings": {
+                    "foreground": "#0bc30b"
+                }
+            },
+            {
                 "scope": "renpy.meta.color.#fff",
                 "settings": {
                     "foreground": "#fff"
@@ -185,45 +221,21 @@
                 }
             },
             {
-                "scope": "renpy.meta.color.#d11a0d",
-                "settings": {
-                    "foreground": "#d11a0d"
-                }
-            },
-            {
-                "scope": "renpy.meta.color.#0bc30b",
-                "settings": {
-                    "foreground": "#0bc30b"
-                }
-            },
-            {
-                "scope": "renpy.meta.color.#d11212",
-                "settings": {
-                    "foreground": "#d11212"
-                }
-            },
-            {
                 "scope": "renpy.meta.color.#2326cc",
                 "settings": {
                     "foreground": "#2326cc"
                 }
             },
             {
-                "scope": "renpy.meta.color.#05b32e",
+                "scope": "renpy.meta.color.#ca831f",
                 "settings": {
-                    "foreground": "#05b32e"
+                    "foreground": "#ca831f"
                 }
             },
             {
-                "scope": "renpy.meta.color.#cfa406",
+                "scope": "renpy.meta.color.#83ca1f",
                 "settings": {
-                    "foreground": "#cfa406"
-                }
-            },
-            {
-                "scope": "renpy.meta.color.#3f41d4",
-                "settings": {
-                    "foreground": "#3f41d4"
+                    "foreground": "#83ca1f"
                 }
             }
         ]
