@@ -1,10 +1,9 @@
-image truckLogo = "images/truckLogo.png" # Load images like this, used inside the scene 1
 #define flashbulp = Fade(0.2, 0.0, 0.8, color='#fff')
 label a0e1:
-    scene bg cool # PLACEHOLDER
+    scene bg street # PLACEHOLDER
     with dissolve
 
-    show MainCharacter empty_hat at right
+    show protagonist sad at center
 
     "It was a regular Wednesday evening. Our Protagonist-kun was returning home from college."
 
@@ -17,13 +16,12 @@ label a0e1:
     "Unfortunately, they failed to look before crossing the road..."
 
     # TODO: animation / still image of truck-kun demolishing the main character
-    scene bg forest # PLACEHOLDER
-    with fade # or some other transition...
+    show truck at right behind protagonist: # ANIMATIONSSS
+        xalign 0.4
+        yalign 0.75
+    show protagonist surprised at center
 
-    show MainCharacter empty_hat at left # PLACEHOLDER
-    show truckLogo at right
-    "Truck"
-    #"Great choice, [povname]."
+    "Uh oh"
 
     jump a0e2  
     
