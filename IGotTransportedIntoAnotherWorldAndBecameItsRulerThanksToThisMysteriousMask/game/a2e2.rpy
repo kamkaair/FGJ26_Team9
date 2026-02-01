@@ -60,7 +60,7 @@ label a2e2:
 
     "As the light moves right next to Protagonist-kun, they punch it."
 
-    call combat("images/valo.png", 100, 15)
+    call combat("images/valo.png", 100, 15) from _call_combat
 
     mc "Huh… Turns out you can punch a light."
     "A tiny fairy stands up, her wings glowing with the same light that had formed the monster mere moments ago."

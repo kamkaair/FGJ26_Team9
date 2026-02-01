@@ -189,7 +189,7 @@ label combat(enemySprite, inEnemyHP, inEnemyDamage):
         "Do you want to try again?"
         menu:
             "yes":
-                call combat(enemySprite, inEnemyHP, inEnemyDamage)
+                call combat(enemySprite, inEnemyHP, inEnemyDamage) from _call_combat_1
             "no":
                 $ MainMenu(confirm=False)() # Should force back to main menu
     else:

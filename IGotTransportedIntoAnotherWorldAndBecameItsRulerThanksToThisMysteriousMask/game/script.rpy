@@ -54,7 +54,7 @@ label setName:
     #attribute 
 
 label start:
-    call setName
+    call setName from _call_setName
     jump a0e1
 
 label continue:
