@@ -55,17 +55,7 @@ label setName:
 
 label start:
     call setName
-    menu:
-        "Which scene do you want to play?"
-        "Main story:":
-            jump a0e1
-        "Act1":
-            jump a1e1
-        "Act2":
-            jump a2e1
-        "None of them":
-            jump continue  
-    return
+    jump a0e1
 
 label continue:
     return

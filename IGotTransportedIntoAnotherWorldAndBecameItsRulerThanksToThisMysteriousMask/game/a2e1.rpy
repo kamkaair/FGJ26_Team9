@@ -25,7 +25,7 @@ label a2e1:
 
     "[mc_color] makes their way to the main area of the tavern, where [pg_color] and [sg_color] are enjoying lunch"
     show susan at right
-    show ayla neutral at left
+    show ayla neutral at leftsad
 
     sg "...and then they punched me! And I got turned into a girl!"
 
@@ -77,7 +77,7 @@ label a2e1:
 
     pg "Otherwise the monster might kill someone."
 
-    show protagonist mask cry at center
+    show protagonist mask sad at center
     mc "But I’m hungry…"
 
     pg "NOW!"
