@@ -151,7 +151,6 @@ label plant_waifu:
     show ayla neutral:
         xalign 0.3
         yalign 1.0 
-        with dissolve
     hide kasvi
 
     pg "Huh… What was I doing..?"
@@ -188,71 +187,83 @@ label plant_waifu:
 
     mc "{size=-10}{i}{alpha=0.8}And I definitely deserve to get a girlfriend for all my troubles.{/alpha}{/i}{/size}" 
 
-    show ayla happa at left
-Elf (happy): “Ara ara… Such a strong mage you are, then.”
+    show ayla happy at left
+    pg "Ara ara.. Such a strong mage you are, then."
 
-Elf (neutral): “My name is Ayla. It’s a pleasure to meet you.”
+    show ayla neutral at left
+    pg "My name is Ayla. It's a pleasure to meet you."
 
-[Change elf’s name to Ayla]
+    $ pg = Character(name=CharactersInfo[3][0], who_color=CharactersInfo[3][2])
 
-Protagonist-kun (happy): “I see. It’s a pleasure to meet you, Ai-chan!”
+    mc "I see. It's a pleasure to meet you, [pg_color]!"
 
-Ayla (angry): “The name. Is. A-y-l-a.”
+    show ayla angry at left
+    pg "The name. Is. A-y-l-a."
 
-Ayla (angry): “If you do not wish for pain, you’ll keep that in mind.”
+    pg "If you do not wish for pain, you'll keep that in mind."
 
-[Player choice: “Got it.” or “I think Ai-chan would be better…”]
+    menu:
+        "Got it":
+            mc "Got it."
+            pass
+        "...":
+            pass
+        "I think Ai-chan would be better":
+            pg "So you have chosen {size=+30}{color=#d4490d}death.{/color}{/size}"
+            "Bad Ending"
+            return
 
-[If “Ai-chan would be better.”]
+    show protagonist mask at left
+    show ayla neutral at center
+    show susan at right
 
-Ayla: “So you have chosen death.”
+    pg "And who's this adorable little lady with you?"
 
-[Game over]
+    sg "Oh, me..? My name is S-"
 
-Protagonist-kun (neutral): “Got it.”
+    mc "This is [sg_color]!"
 
-[Susan comes back into frame]
+    show protagonist mask happy at left
+    mc "She was the first damsel in distress I rescued, and she fell madly in love with me thanks to my heroics!"
 
-Ayla (neutral): “And who’s this adorable little lady with you?”
+    show susan angry at right
+    sg "...not really..?"
 
-Susan (neutral): “Oh, me..? My name is S-”
+    show ayla happy at center
+    pg "Oh, such a brave warrior you are, Masked One."
 
-Protagonist-kun (neutral): “This is Slime-chan!”
+    pg "Perhaps I should join forces with you, "
+    pg "see if you're the prophesized warrior who shall cleanse the curse from these lands."
 
-Protagonist-kun (happy): “She was the first damsel in distress I rescued, and she fell madly in love with me thanks to my heroics!”
+    mc "Feel free to join my {b}har-{/b}"
 
-Susan (angry): “...not really..?”
+    show protagonist mask at left
+    mc "I-I mean crew! I'm always looking for more followers."
 
-Ayla (happy): “Oh, such a brave warrior you are, Masked One.”
+    show protagonist mask happy at left
+    mc "{size=-10}{i}{alpha=0.8}The fact that you're a hot elf waifu also helps..{/alpha}{/i}{/size}"
 
-Ayla (neutral): “Perhaps I should join forces with you, see if you’re the prophesized warrior who shall cleanse the curse from these lands.”
+    show ayla neutral at center
+    pg "Excellent! If you need help with magic, do let me know."
 
-Protagonist-kun (happy): “Feel free to join my har-”
+    pg "I'm knowledgeable when it comes to the arcane, although I'm no master."
 
-Protagonist-kun (neutral): “I-I mean crew! I’m always looking for more followers.”
+    "The three of them chat, until it's time to go to sleep."
 
-Protagonist-kun (happy) [whispering]: “The fact that you’re a hot elf waifu also helps…”
+    "To [mc_color]'s dismay, the girls get a separate room of their own."
 
-Ayla (neutral): “Excellent! If you need help with magic, do let me know.”
+    show ayla angry at center
+    pg "It would be extremely inappropriate to share a bed with a member of another gender before marriage!"
+    pg "Now, good night!"
 
-Ayla (neutral): “I’m knowledgeable when it comes to the arcane, although I’m no master.”
-
-Narrator: The three of them chat, until it’s time to go to sleep.
-
-Narrator: To protagonist-kun’s dismay, the girls get a separate room of their own.
-
-Ayla (angry): “It would be extremely inappropriate to share a bed with a member of another gender before marriage!”
-
-Ayla (angry): “Now, good night!”
-
-[Player choice: “Go to sleep” or “Stay up”]
-
-[If “Stay up”]
-
-Narrator: Protagonist-kun stays up late, watching the moon.
-
-Protagonist-kun (neutral): “Huh, what on earth has my life turned into…”
-
-Narrator: They keep watching the moon, until they fall asleep. A member of staff carries them to their room and dumps them on the bed.
+    menu:
+        "Go to sleep":
+            jump a2e1
+        "Stay up":
+            "[mc_color] stays up late, watching the moon."
+            mc "Huh, what on earth has my life turned into.."
+            "They keep watching the moon, until they fall asleep." 
+            "A member of staff carries them to their room and dumps them on the bed."
+            jump a2e1
 
 
