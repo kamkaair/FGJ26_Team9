@@ -61,9 +61,10 @@ label start:
             jump a0e1
         "Act1":
             jump a1e1
+        "Act2":
+            jump a2e1
         "None of them":
             jump continue  
-
     return
 
 label continue:
