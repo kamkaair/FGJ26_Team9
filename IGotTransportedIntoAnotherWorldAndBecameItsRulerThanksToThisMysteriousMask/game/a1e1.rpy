@@ -127,11 +127,13 @@ label slime_waifu:
 
     show protagonist mask surprised at left 
     sg "Ow ow ow…"
+    show susan at right
     sg "Huh? I seem to have {size=+5}{i}transformed{/i}{/size} somehow?"
     sg "Uhm…"
-    show susan shy
+    show susan shy at right
     sg "W-w-w-what did you do to me?"
     
+    show protagonist mask at left
     mc "{alpha=0.8}{i}She's adorable. Extremely shy, sure. But adorable.{/i}{/alpha}"
     
     sg "Huh? W-w-w-what are you doing?"
