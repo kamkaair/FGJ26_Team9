@@ -1,24 +1,27 @@
 label a1e2:
     image bg black = "#0b681f"
-    image text = "{color=#83ca1f} At the tavern..{/color}"#Transform(Text("{color=#83ca1f} At the tavern..{/color}", size=60), yalign=0.5)
+    image tavern_text = Transform(Text("{color=#efc727} At the tavern..{/color}", size=60), yalign=0.5)
 
     show bg black
-    show text
+    show tavern_text
     "Click to continue..."
-    
-    show protagonist happy at left
+    hide tavern_text
+    show bg bar
+
+    show protagonist mask happy at left
+    show susan at right
     mc "Haah… I’m so glad this place has a tavern."
-    show protagonist at left
+    show protagonist mask at left
     "What about you, [sg_color]?"
     
     "The slime-girl drinks the last of her beer, feeling herself fill up with courage."
     
-    sg "A-actually, my name is Susan…"
+    sg "A-actually, my name is {color=#3c92cb}Susan…{/color}"
     $ sg = Character(name=CharactersInfo[2][0], who_color=CharactersInfo[2][2])
 
-    "Protagonist-kun ignores this completely."
+    "[mc_color] ignores this completely."
 
-    show protagonist happy at left
+    show protagonist mask happy at left
     mc "Yeah yeah. So! What should we do next?"
     mc "I was thinking of a romantic date on a nearby beach..."
 
@@ -34,7 +37,7 @@ label a1e2:
     mc "We could enjoy a not-so-long-because-I\m-out-of-shape"
     mc "walk along the coastline before going on a romantic swim in the bay at sunset!"
 
-    show susa susan at right
+    show susan at right
     sg "Uhm? Well.. It does sound fun.."
 
     mc "I know right?"
@@ -42,64 +45,150 @@ label a1e2:
     mc "So, [sg_color], shall we go on the first date of my life, culminating in-?"
 
     "They get interrupted by a random person bursting into the tavern."
-
-    $ r Character("Random Civilian")
+    hide protagonist mask
+    hide susan
+    $ r = Character("Random Civilian")
     r "{size=+10}{b}Someone help! A plant monster has walked straight into town!{/b}{/size}"
+
+    show protagonist mask surprised at center
+    show susan surprised at right
 
     "There's people screaming outside."
 
+    #show white 
+    show white with dissolve
     "Suddenly, the plant monster bursts into the tavern."
 
-Protagonist-kun (surprised): “Whoa! What’s this? Someone dares intrude on my epic date plans?”
+    show kasvi at left
 
-Protagonist-kun (surprised): “Slime-chan! get somewhere safe!”
+    mc "Whoa! What's this? Someone dares intrude on my epic date plans?"
 
-[Move Susan’s sprite off-screen]
+    mc "[sg_color]! get somewhere safe!"
 
-Plant monster: “Shuffle shuffle.”
+    show susan surprised:
+        xalign 0.75
+        linear 1.0 xalign 2.0
 
-Protagonist-kun (angry): “Oh wow, you seem way stronger than Slime-chan did…”
+    pg "Shuffle shuffle."
 
-Mask: “You know, if you punch it my powers will turn it into a “hot waifu” as you seem to refer to them.”
+    show protagonist mask angry at center
+    mc "Oh wow, you seem way stronger than [sg_color]."
 
-Protagonist-kun (neutral): “Oh right, I totally forgot that.”
+    mk "You know, if you punch it my powers will turn it into a {b}hot waifu{/b} as you seem to refer to them."
 
-Protagonist-kun (angry): “Welp, here we go!”
+    show protagonist mask at center
+    mc "Oh right, I totally forgot that."
 
-[Player choice: “Punch the plant”]
+    show protagonist mask angry at center 
+    mc "Welp, here we go!"
 
-[Insert fighting minigame here]
+    menu:
+        "Punch the plant":
+            pass
 
-Narrator: As Protagonist-kun punches the lights out of the plant monster, it transforms into a hot elf waifu!
+    define plant_hp = 8
 
-Elf (neutral): “Huh… What was I doing..?”
+    label plant_fight:
+        show protagonist mask
+        if(plant_hp <= 0):
+            jump plant_waifu
+        menu:
+            "Slime has {color=#0bc30b}[plant_hp]{/color} health left"              
+            "{color=#d11212}Kick{/color}":
+                $ my_num = renpy.random.randint(1,5)
+                $ plant_num = renpy.random.randint(1,3)
+                if(my_num > plant_num):
+                    $ plant_hp -= 2
+                    show protagonist mask angry ###
+                    "You managed to kick the slime!"
+                    jump plant_fight
+                else:
+                    show protagonist mask sad ###
+                    "{color=#d11a0d}You Took damage{/color}"
+                    jump plant_fight
+            "{color=#cfa406}Punch{/color}":
+                $ my_num = renpy.random.randint(2,4)
+                $ plant_num = renpy.random.randint(1,3)
+                if(my_num > plant_num):
+                    $ plant_hp -= 1
+                    show protagonist mask angry ###
+                    "You managed punch the slime!"
+                    jump plant_fight
+                else:
+                    show protagonist mask sad ###
+                    "{color=#d11a0d}You took damage{/color}"
+                    jump plant_fight
 
-Narrator: The tall elf gets up, before setting her sights on Protagonist-kun.
+            "{color=#3f41d4}Dodge{/color}":
+                $ my_num = renpy.random.randint(1,5)
+                $ plant_num = renpy.random.randint(1,3)
+                if(my_num > plant_num):
+                    show protagonist mask surprised
+                    "You managed to dodge the slime."
+                    jump plant_fight
+                else:
+                    show protagonist mask sad ###
+                    "{color=#d11a0d}You took damage{/color}"
+                    jump plant_fight
 
-Elf (neutral): “I must thank you for freeing me of that awful curse.”
+            "{color=#05b32e}Block{/color}":
+                $ my_num = renpy.random.randint(1,3)
+                $ plant_num = renpy.random.randint(1,1)
+                if(my_num > plant_num):
+                    show protagonist mask surprised
+                    "You managed to block."
+                    jump plant_fight
+                else:
+                    show protagonist mask sad ###
+                    "{color=#d11a0d}You took damage{/color}"
+                    jump plant_fight
 
-Elf (neutral): “It was most unpleasant.”
+label plant_waifu:
+    show white
+    "As [mc_color] punches the lights out of the plant monster, it transforms into a hot elf waifu!"
 
-[Player choice: “Ask about curse”]
+    hide white with dissolve
+    show ayla neutral:
+        xalign 0.3
+        yalign 1.0 
+        with dissolve
+    hide kasvi
 
-Protagonist-kun (surprised): “Huh? What curse?”
+    pg "Huh… What was I doing..?"
 
-Elf (neutral): “Oh? You don’t know?”
+    "The tall elf gets up, before setting her sights on [mc_color]."
 
-Elf (neutral): “The curse that’s turned half this world into hideous monsters, of course.”
+    pg "I must thank you for freeing me of that awful curse."
 
-Elf (neutral): “I must ask, how did you manage to unto the curse, Masked Warrior?”
+    pg "It was most unpleasant."
 
-Protagonist-kun (suprised) [whispering]: “Err… Hey mask, could I get a little help here?”
+    menu:
+        "Ask about curse":
+            pass
 
-Narrator: The mask is once again silent.
+    show protagonist mask surprised
+    mc "Huh? What curse?"
 
-Protagonist-kun (neutral) [whispering]: “Well then… Time to improvise.”
+    pg "Oh? You don't know?"
 
-Protagonist-kun (happy): “Ahem. I’m a great mage from a faraway land, and I’ve come here to save all innocents because I’m such a good person.”
+    pg "The curse that's turned half this world into hideous monsters, of course."
 
-Protagonist-kun (happy) [whispering]: “And I definitely deserve to get a girlfriend for all my troubles.”
+    pg "I must ask, how did you manage to unto the curse, Masked Warrior?"
 
+    mc "{size=-10}{i}{alpha=0.8}Err… Hey mask, could I get a little help here?{/alpha}{/i}{/size}"
+
+    "The mask is once again silent."
+
+    mc "{size=-10}{i}{alpha=0.8}Well then.. Time to improvise.{/alpha}{/i}{/size}"
+
+    show protagonist mask happy
+
+    mc "Ahem. I'm a great mage from a faraway land, "
+    mc "and I've come here to save all innocents because I'm such a good person."
+
+    mc "{size=-10}{i}{alpha=0.8}And I definitely deserve to get a girlfriend for all my troubles.{/alpha}{/i}{/size}" 
+
+    show ayla happa at left
 Elf (happy): “Ara ara… Such a strong mage you are, then.”
 
 Elf (neutral): “My name is Ayla. It’s a pleasure to meet you.”
@@ -165,3 +254,5 @@ Narrator: Protagonist-kun stays up late, watching the moon.
 Protagonist-kun (neutral): “Huh, what on earth has my life turned into…”
 
 Narrator: They keep watching the moon, until they fall asleep. A member of staff carries them to their room and dumps them on the bed.
+
+
