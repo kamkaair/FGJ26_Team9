@@ -1,11 +1,11 @@
 label a1e1:
     show bg forest #placeholder
-    show protagonist mask at left ###
+    show protagonist at left
     mc "{i}Huff, puff. I never thought I would miss Japan's rush-hour trains…{/i}"
-    hide protagonist mask ###
+    hide protagonist
     "[mc_color] had made it to a forest. Generic Fantasy Town should be close by now."
     "Unfortunately, their lack of athleticism seemed to have come back to haunt them."
-    show protagonist mask at left ###
+    show protagonist at left 
     mc "I swear if I ever make it back home I'll start going to the {size=+10}{i}gym.{/i}{/size}"
     mc "Maybe then I can get a girl…"
 
@@ -18,10 +18,10 @@ label a1e1:
             "They don't help much."
             pass
 
-    hide protagonist mask ###
+    hide protagonist 
     "{size=+20}Suddenly, they hear {i}gurgling{/i}.{/size}"
 
-    show protagonist mask surprised at left ###
+    show protagonist surprised at left 
 
     show slime:
         xalign 0.75
@@ -46,7 +46,7 @@ label a1e1:
         linear 1.0 xalign 0.3
 
     mc "I said stay back!"
-    show protagonist mask angry
+    show protagonist angry
     menu:
         "Punch the slime":
             pass
@@ -54,7 +54,7 @@ label a1e1:
     define slime_hp = 4
 
     label slime_fight:
-        show protagonist mask
+        show protagonist
         if(slime_hp <= 0):
             jump slime_waifu
         menu:
@@ -64,11 +64,11 @@ label a1e1:
                 $ slime_num = renpy.random.randint(1,3)
                 if(my_num > slime_num):
                     $ slime_hp -= 2
-                    show protagonist mask angry ###
+                    show protagonist angry ###
                     "You managed to kick the slime!"
                     jump slime_fight
                 else:
-                    show protagonist mask cry ###
+                    show protagonist sad ###
                     "{color=#d11a0d}You Took damage{/color}"
                     jump slime_fight
             "{color=#cfa406}Punch{/color}":
@@ -76,11 +76,11 @@ label a1e1:
                 $ slime_num = renpy.random.randint(1,3)
                 if(my_num > slime_num):
                     $ slime_hp -= 1
-                    show protagonist mask angry ###
+                    show protagonist angry ###
                     "You managed punch the slime!"
                     jump slime_fight
                 else:
-                    show protagonist mask cry ###
+                    show protagonist sad ###
                     "{color=#d11a0d}You took damage{/color}"
                     jump slime_fight
 
@@ -88,11 +88,11 @@ label a1e1:
                 $ my_num = renpy.random.randint(1,5)
                 $ slime_num = renpy.random.randint(1,3)
                 if(my_num > slime_num):
-                    show protagonist mask surprised
+                    show protagonist surprised
                     "You managed to dodge the slime."
                     jump slime_fight
                 else:
-                    show protagonist mask cry ###
+                    show protagonist sad ###
                     "{color=#d11a0d}You took damage{/color}"
                     jump slime_fight
 
@@ -100,11 +100,11 @@ label a1e1:
                 $ my_num = renpy.random.randint(1,3)
                 $ slime_num = renpy.random.randint(1,1)
                 if(my_num > slime_num):
-                    show protagonist mask surprised
+                    show protagonist surprised
                     "You managed to block."
                     jump slime_fight
                 else:
-                    show protagonist mask cry ###
+                    show protagonist sad ###
                     "{color=#d11a0d}You took damage{/color}"
                     jump slime_fight
 
@@ -125,21 +125,32 @@ label slime_waifu:
     with dissolve
     hide slime
 
-    show protagonist mask surprised at left 
+    show protagonist surprised at left 
     sg "Ow ow ow…"
-    show susan at right
+    show susan surprised at right
     sg "Huh? I seem to have {size=+5}{i}transformed{/i}{/size} somehow?"
-    sg "Uhm…"
-    show susan shy at right
+    
+    mc "Uhm…"
+    
+    show susan angry at right
     sg "W-w-w-what did you do to me?"
     
-    show protagonist mask at left
-    mc "{alpha=0.8}{i}She's adorable. Extremely shy, sure. But adorable.{/i}{/alpha}"
+    show protagonist at left
+    "{alpha=0.8}{i}She's adorable. Extremely shy, sure. But adorable.{/i}{/alpha}"
     
+    menu:
+        "Approach":
+            pass
+    show protagonist:
+        xalign 0.25
+        linear 1.0 xalign 0.5
+
+    show susan surprised at right
     sg "Huh? W-w-w-what are you doing?"
 
-    #Protagonist-kun takes her hands into his.
+    "[mc_color] takes her hands into his."
 
+    show protagonist happy
     mc "Are you the first member of my {b}harem{/b}?"
 
     sg "{size=+20}...What?{/size}"
@@ -149,7 +160,7 @@ label slime_waifu:
 
     sg "Actually, you punched me in the face…"
 
-    mc "{size=+20}...then clearly that must mean that I’m destined to have a harem!{/size}"
+    mc "{size=+20}...then clearly that must mean that I'm destined to have a harem!{/size}"
 
     sg "I don't think that's how it works…"
 
