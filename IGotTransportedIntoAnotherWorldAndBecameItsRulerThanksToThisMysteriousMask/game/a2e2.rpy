@@ -1,5 +1,8 @@
+define fairyName = Character("Fairy")
+
 label a2e2:
     image bg black = "#000000"
+    image bg whiteFlash = "#ffffff"
     image textForest = Transform(Text("At the forest:", size=60), yalign=0.5)
 
     show bg black
@@ -9,106 +12,136 @@ label a2e2:
     scene bg forest # PLACEHOLDER
     with dissolve
 
-    #show MainCharacter empty_hat at center
-    show protagonist mask at center:
-        zoom 1.2
-        xalign 0.5
-        yalign 3.2
+    show protagonist mask sad at center
+    mc "[pg_color] is so scary when she gets mad... "
+    mc "I just wanted some breakfast before continuing on my quest to gain a harem..."
+    "[mc_color]'s stomach rumbles loudly."
 
-    show susan at center:
-        xalign 0.9
-        yalign 1.0
+    show protagonist mask at center
+    mc "Well, nothing I can do about that now."
+    mc "I guess if I find the monster fast I'll be able to get back to town fast and then I'll be able to eat"
 
-    show ayla neutral at center:
-        xalign 0.1
-        yalign 1.0
-
-    mc "[pg_color] is so scary when she gets mad... I just wanted some breakfast before continuing on my quest to gain a harem..."
-    "Their stomach rumbles loudly."
-
-    mc "Well, nothing I can do about that now. I guess if I find the monster fast I'll be able to get back to town fast and then I'll be able to eat"
-
-    "And so, our [mc_color] begins his search. They search high and low, behind bushes and under rocks. 
-    They keep searching, as the sun makes its way higher and higher on the sky, eventually starting its slow descent towards dusk"
+    "They keep searching, as the sun makes its way higher and higher on the sky, eventually starting its slow descent towards dusk."
     
+    show protagonist mask angry at center
     mc "Where the hell is that stupid monster?!?!"
-    "[mc_color] yells." 
-
-    mc "I have been searching for it for hours! And it still hasn't shown up?!"
+    mc "I have been searching for it for hours!"
+    mc "And it still hasn't shown up?!"
 
     "They hear no response to their yelling. Even the birds seem to have gone silent."
 
-    mc "Whatever. I'm going back to town. [pg_color] can go find the monster herself if she gets mad."
+    menu:
+        "Go back to town":
+            pass
 
-    "Suddenly, a blinding light, capable of rivaling the sun, seemed to appear. It twinkled as it moved closer, radiating heat."
-    #effects
+    show protagonist mask at center
+    mc "Whatever. I'm going back to town."
+    mc "[pg_color] can go find the monster herself if she gets mad."
 
-    mc "How the hell do you defeat a light?" 
-    "[mc_color] exclaimed."
+    "Suddenly, a flashing light, capable of momentarily rivaling the sun, seems to appear."
+    
+    show bg whiteFlash
+    with vpunch
+
+    show protagonist mask sad at center:
+        zoom 1.0
+        linear 1.0 xalign 0.5
+        linear 1.0 xalign 0.0
+
+    show valo at center: # Valo appears
+        xalign 1.25
+        yalign 1.0
+        zoom 0.75
+        linear 1.0 xalign 1.25
+        linear 1.0 xalign 0.75
+    "It sparks as it moves closer."
+
+    show protagonist mask surprised
+    mc "How the hell do you defeat a spider made of lightning?!?!" 
 
     mk "Have you considered punching it?"
-    "[mk_color]'s voice asks."
 
-    mc "How do you punch a light?!?!"
-    "[mc_color] yells as the light moves closer."
+    show valo at center: # Valo moves closer
+        zoom 0.75
+        linear 1.0 xalign 0.75
+        linear 1.0 xalign 0.5
+
+    show protagonist mask angry
+    mc "How do you punch lightning?!?!"
 
     mk "You punch by first pulling your fist back-"
-    "[mk_color] begins to explain"
 
     mc "You know what, that's not helpful."
-    "[mc_color] replies"
 
-    "As the light moves right next to Protagonist-kun, they punch it."
+    show valo at center: # Valo is right next to the mc
+        zoom 0.75
+        linear 1.0 xalign 0.5
+        linear 1.0 xalign 0.25
+    
+    pause 1.0 # Wait for the animation
 
-    call combat("images/valo.png", 100, 15) from _call_combat
+    menu:
+        "Punch it!":
+            call combat("images/valo.png", 1, 15) from _call_combat
 
     mc "Huh… Turns out you can punch a light."
-    "A tiny fairy stands up, her wings glowing with the same light that had formed the monster mere moments ago."
+    "A tiny fairy stands up, her wings glowing the same purple light that had formed the spider mere moments ago."
 
-    show evelyn surprised at right:
+    show evelyn angry at right:
+        xalign 1.1
+        yalign 1.0
         zoom 1.3
 
-    lg "Ugh… That was the most unpleasant experience of my life!" 
-    "she exclaims." 
-    lg "Thank you so so SO much for saving me! I'm [lg_color], a master musician in my clan. If there's anything I can do to repay you, please let me know!"
+    fairyName "Ugh… That was the most unpleasant experience of my life!" 
 
+    show evelyn happy
+    fairyName "Thank you so so SO much for saving me!"
+    show evelyn neutral
+    fairyName "I'm [lg_color], a master idol known all through these lands." 
+    lg "If there's anything I can do to repay you, please let me know!"
+
+    show protagonist mask happy
     mc "Oh wow. It's nice to meet you…"
-    "Protagonist-kun starts,"
+    menu:
+        "Give Evelyn a nickname":
+            pass
+
     mc "...{color=#fdef2b}Eve-tan{/color}."
 
+    show evelyn surprised
     lg "{size=+5}...-tan..?{/size}"
-    "[lg_color] asks, shocked" 
+
+    show evelyn angry
     lg "{size=+5}TAN?!?!{/size} What do you think I am, a baby?!"
 
-    mc "Err- Well, you are small and adorable so I thought..."
-    "Protagonist-kun starts explaining."
+    show protagonist mask surprised
+    mc "Err- Well, you are small and adorable, so I thought…"
 
-    lg "...I guess you're right… And {color=#fdef2b}Eve-tan{/color} is a cute nickname, I suppose..."
+    show evelyn neutral
+    lg "“...I guess you're right. {color=#fdef2b}Eve-tan{/color} {i}is{/i} a cute nickname..."
 
     "The two of them stand in silence while Evelyn ponders about her new nickname."
 
-    lg "Yeah, it's fine. I've never had a nickname before. Does this finally make me a proper idol?"
-    "Evelyn asks."
+    show evelyn neutral
+    lg "Yeah. It's fine! I've never had a nickname before so it just felt weird."
 
+    show evelyn neutral
+    lg "Does this finally make me a proper idol?"
+
+    show protagonist mask happy
     mc "It absolutely does!"
-    "Protagonist-kun agrees."
 
-    mc "Now, as much as I'd love to keep chatting with you in this lovely forest full of dangerous beasts, 
-    I haven't eaten anything yet and I'm {size=+5}{i}starving{/i}{/size}. What do you think, should we head to the nearby town and grab something to eat?"
+    show protagonist mask
+    mc "Now, as much as I'd love to keep chatting with you in this lovely forest full of dangerous beasts, I haven't eaten anything yet and I'm starving."
+    mc "What do you think, should we head to a nearby town and grab something to eat?"
 
     "There's a low growl coming from somewhere close by."
 
-    lg "Eep-!"
-    "Evelyn shouts, frightened."
-    lg "Yes yes, let's leave this forest!"
+    show evelyn surprised
+    lg "Eep!"
+    lg "Yes yes, let’s leave this forest, right now!"
 
     "And so, the two of them make their way back into town."
-
-    "{color=#dda732}They ask.{/color}" # This is kinda dumb way of getting the character's color, but it shall be fine for now.
-    mc "{i}But I'm hungry...{/i}"
-    pg "{size=+15}NOW!{/size}"
-    "[pg_color] yells."
-
 
     #jump a2e2
     

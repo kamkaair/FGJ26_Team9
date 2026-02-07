@@ -111,16 +111,13 @@ screen combat_ui():
                 hbox:
                     spacing 40
 
-                    #textbutton "Attack" action Function(player_attack_enemy)
-                    #textbutton "Defend" action Function(player_defend)
-
-                    textbutton "Attack" action Show("combat_attackCheck")
-                    textbutton "Defend" action Show("combat_defenseCheck")
+                    textbutton "Attack" action Show("combatHeightSelect", actionSel = "Attack", inFunc = player_attack_enemy)
+                    textbutton "Defend" action Show("combatHeightSelect", actionSel = "Defend", inFunc = player_defend)
 
                     if(currentTurn == "enemy"):
                         text "Enemy Turn..."
 
-screen combat_defenseCheck():
+screen combatHeightSelect(actionSel, inFunc):
 
     frame:
         xalign 0.5
@@ -130,27 +127,11 @@ screen combat_defenseCheck():
         vbox:
             spacing 20
 
-            text "Which part do you want to GUARD?"
+            text "Which part do you want to [actionSel]?"
 
-            textbutton "Guard High" action [Function(player_defend, 3), Hide("combat_defenseCheck")]
-            textbutton "Guard Mid" action [Function(player_defend, 2), Hide("combat_defenseCheck")]
-            textbutton "Guard Low" action [Function(player_defend, 1), Hide("combat_defenseCheck")]
-
-screen combat_attackCheck():
-
-    frame:
-        xalign 0.5
-        yalign 0.5
-        padding (40, 40)
-
-        vbox:
-            spacing 20
-
-            text "Where part do you want to target?"
-
-            textbutton "High" action [Function(player_attack_enemy, 3), Hide("combat_attackCheck")]
-            textbutton "Mid" action [Function(player_attack_enemy, 2), Hide("combat_attackCheck")]
-            textbutton "Low" action [Function(player_attack_enemy, 1), Hide("combat_attackCheck")]
+            textbutton "[actionSel] High" action [Function(inFunc, 3), Hide("combatHeightSelect")]
+            textbutton "[actionSel] Mid" action [Function(inFunc, 2), Hide("combatHeightSelect")]
+            textbutton "[actionSel] Low" action [Function(inFunc, 1), Hide("combatHeightSelect")]
                 
 
 label combat(enemySprite, inEnemyHP, inEnemyDamage):
