@@ -2,7 +2,7 @@ label a2e1:
     image bg black = "#000000"
     image textTavern = Transform(Text("At the tavern:", size=60), yalign=0.5)
 
-    show bg black
+    scene bg black
     show textTavern
     "Click to continue..."
 
@@ -16,12 +16,12 @@ label a2e1:
 
     "Our beloved [mc_color] wakes up the next day when the sun is already high in the sky, feeling refreshed"
 
-    show protagonist mask at center
+    show protagonist mask neutral at center
 
     mc "Ahh, that was some of the best sleep I’ve ever had "
     "I wonder how the girls are doing..."
 
-    hide protagonist mask
+    hide protagonist mask neutral
 
     "[mc_color] makes their way to the main area of the tavern, where [pg_color] and [sg_color] are enjoying lunch"
     show susan at right
@@ -69,7 +69,7 @@ label a2e1:
 
     "[mc_color]’s stomach rumbles loudly."
 
-    show protagonist mask at center
+    show protagonist mask neutral at center
     mc "I’ll go after I’ve eaten breakfast..?"
 
     show ayla angry at left

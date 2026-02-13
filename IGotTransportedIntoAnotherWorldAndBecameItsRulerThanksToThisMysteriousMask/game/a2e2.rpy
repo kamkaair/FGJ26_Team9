@@ -1,11 +1,9 @@
-define fairyName = Character("Fairy")
-
 label a2e2:
     image bg black = "#000000"
     image bg whiteFlash = "#ffffff"
     image textForest = Transform(Text("At the forest:", size=60), yalign=0.5)
 
-    show bg black
+    scene bg black
     show textForest
     "Click to continue..."
 
@@ -82,7 +80,7 @@ label a2e2:
 
     menu:
         "Punch it!":
-            call combat("images/valo.png", 1, 15) from _call_combat
+            call combat("images/valo.png", 100, 15) from _call_combat
 
     mc "Huh… Turns out you can punch a light."
     "A tiny fairy stands up, her wings glowing the same purple light that had formed the spider mere moments ago."
@@ -92,12 +90,13 @@ label a2e2:
         yalign 1.0
         zoom 1.3
 
-    fairyName "Ugh… That was the most unpleasant experience of my life!" 
+    lg "Ugh… That was the most unpleasant experience of my life!" 
 
     show evelyn happy
-    fairyName "Thank you so so SO much for saving me!"
+    lg "Thank you so so SO much for saving me!"
     show evelyn neutral
-    fairyName "I'm [lg_color], a master idol known all through these lands." 
+    lg "I'm [lg_color], a master idol known all through these lands." 
+    $ lg = Character(name=CharactersInfo[4][0], who_color=CharactersInfo[4][2])
     lg "If there's anything I can do to repay you, please let me know!"
 
     show protagonist mask happy
@@ -143,5 +142,5 @@ label a2e2:
 
     "And so, the two of them make their way back into town."
 
-    #jump a2e2
+    jump a2e3
     
