@@ -31,7 +31,7 @@ label a3e1:
 
     menu:
         "Punch tiger":
-            call combat("images/tiger.png", 1, 15)
+            call combat("images/tiger.png", 100, 15)
     
     "As [mc_color] lands one final punch on the tiger, it transforms into a beautiful tiger-girl."
 
@@ -105,24 +105,6 @@ label a3e1:
     cg "Do I look like a regular house-cat, you baka?!?!"
 
     "The two of them kept arguing all the way back into town..."
-
-
-
-    #show bg whiteFlash
-    #with vpunch
-
-    #show valo at center: # Valo appears
-        #xalign 1.25
-        #yalign 1.0
-        #zoom 0.75
-        #linear 1.0 xalign 1.25
-        #linear 1.0 xalign 0.75
-    
-
-    #mc "...{color=#fdef2b}Eve-tan{/color}."
-    #lg "{size=+5}...-tan..?{/size}"
-    #lg "“...I guess you're right. {color=#fdef2b}Eve-tan{/color} {i}is{/i} a cute nickname..."
-
-   
-    #jump a2e4
+    scene bg black
+    jump a3e2
     
