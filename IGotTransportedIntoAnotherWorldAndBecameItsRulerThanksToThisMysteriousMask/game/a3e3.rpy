@@ -64,3 +64,5 @@ label a3e3:
 
     show truck_kun happy at left
     bm "Eh, semantics."
+
+    jump a4e1
