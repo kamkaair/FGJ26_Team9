@@ -76,21 +76,27 @@ label aylaDate:
     show ayla happy at left
     pg "Sure sure..."
 
+    scene bg beach:
+        xanchor 0 yanchor 0
+        ypos 0 xpos -100
+        zoom 1.5
+    show ayla ending at center
+
     "Something tells Protagonist-kun that Ayla doesn't believe one word they say."
 
-    show protagonist mask at right
+    #show protagonist mask at right
     mc "Anyway..."
 
-    show ayla neutral at left 
+    #show ayla neutral at left 
     pg "You've saved a lot of people. It's admirable. Even if your reasons aren't due to a pure heart."
 
-    show protagonist mask surprised at right
+    #show protagonist mask surprised at right
     mc "Ahaha... You caught me."
 
-    show ayla happy at left
+    #show ayla happy at left
     pg "Still. Thank you. For saving me."
 
-    show protagonist mask happy at right
+    #show protagonist mask happy at right
     mc "You're welcome."
     return
 
@@ -257,25 +263,26 @@ label truck_kunDate:
     mc "You're doing that thing again! Stop it!"
 
     "Truck-kun goes to leave."
+    scene bg truck_kun ending
 
-    show protagonist mask angry at right
+    #show protagonist mask angry at right
     mc "Where are you going? I still have questions?!"
 
-    show truck_kun smug at left 
+    #show truck_kun smug at left 
     bm "I have a job to do."
 
-    show protagonist mask surprised at right
+    #show protagonist mask surprised at right
     mc "What job?"
 
-    show truck_kun smug at left 
+    #show truck_kun smug at left 
     bm "Well..."
 
-    show truck_kun happy at left
+    #show truck_kun happy at left
     bm "Someone has to transport the protagonists to new worlds."
 
-    show protagonist angry at right 
+    #show protagonist angry at right 
     mc "I'm giving up. You're incapable of making any sense."
 
-    show truck_kun smug at left
+    #show truck_kun smug at left
     bm "See ya."
     return
