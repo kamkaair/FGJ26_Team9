@@ -21,19 +21,19 @@ label a4e1:
 label dateSelection:
 menu:
     "Susan":
-        call susanDate
+        call susanDate from _call_susanDate
 
     "Ayla":
-        call aylaDate
+        call aylaDate from _call_aylaDate
 
     "Evelyn":
-        call evelynDate
+        call evelynDate from _call_evelynDate
 
     "Tessa":
-        call tessaDate
+        call tessaDate from _call_tessaDate
 
     "Truck-kun":
-        call truck_kunDate
+        call truck_kunDate from _call_truck_kunDate
 
     "All of them":
         wr "{size=+150}HAHAHAHAHAHAHA{size=-150}"

@@ -31,7 +31,7 @@ label a3e1:
 
     menu:
         "Punch tiger":
-            call combat("images/tiger.png", 100, 15)
+            call combat("images/tiger.png", 75, 15) from _call_combat_2
     
     "As [mc_color] lands one final punch on the tiger, it transforms into a beautiful tiger-girl."
 

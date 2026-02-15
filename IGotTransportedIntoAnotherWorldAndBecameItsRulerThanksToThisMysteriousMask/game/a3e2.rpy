@@ -85,7 +85,7 @@ label a3e2:
 
             menu:
                 "Punch car":
-                    call combat("images/truck.png", 1, 15)
+                    call combat("images/truck.png", 100, 15) from _call_combat_3
                     scene bg black
                     pass
            

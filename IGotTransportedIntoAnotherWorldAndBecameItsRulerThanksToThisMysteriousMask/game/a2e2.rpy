@@ -80,7 +80,7 @@ label a2e2:
 
     menu:
         "Punch it!":
-            call combat("images/valo.png", 100, 15) from _call_combat
+            call combat("images/valo.png", 50, 15) from _call_combat
 
     mc "Huh… Turns out you can punch a light."
     "A tiny fairy stands up, her wings glowing the same purple light that had formed the spider mere moments ago."
