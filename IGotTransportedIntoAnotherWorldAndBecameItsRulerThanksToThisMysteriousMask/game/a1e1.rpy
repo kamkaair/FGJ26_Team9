@@ -18,6 +18,7 @@ label a1e1:
             "They don't help much."
             pass
 
+    stop music fadeout 1.0
     hide protagonist mask 
     "{size=+20}Suddenly, they hear {i}gurgling{/i}.{/size}"
 
@@ -50,7 +51,8 @@ label a1e1:
     menu:
         "Punch the slime":
             pass
-
+    play audio hit6_sfx
+    play music battle1_theme
     define slime_hp = 4
 
     label slime_fight:
@@ -113,7 +115,7 @@ label slime_waifu:
     #slime explodes
     show white 
 
-
+    stop music fadeout 1.0
     "As their punch connects, the slime gets covered in bright light"
     "[mc_color] scrambles further back, worried about the slime" 
     "exploding and covering them in its nastiness."
@@ -126,6 +128,7 @@ label slime_waifu:
     hide slime
 
     show protagonist mask surprised at left 
+    play music woods_theme
     sg "Ow ow ow…"
     show susan surprised at right
     sg "Huh? I seem to have {size=+5}{i}transformed{/i}{/size} somehow?"

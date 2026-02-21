@@ -1,5 +1,6 @@
 label a0e1:
     scene bg street # PLACEHOLDER
+    play music city_theme
     with dissolve
 
     show protagonist sad at center
@@ -24,6 +25,7 @@ label a0e1:
 
     mc "At this rate, I’m going to grow old without ever touching a single oppai…"
     "Unfortunately, they failed to look before crossing the road..."
+    stop music fadeout 1.0
 
     jump a0e2  
     

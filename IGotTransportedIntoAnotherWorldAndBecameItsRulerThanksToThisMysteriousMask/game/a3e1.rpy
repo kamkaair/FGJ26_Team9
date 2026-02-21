@@ -5,6 +5,8 @@ label a3e1:
     scene bg forest
     with dissolve
 
+    play music woods_theme
+
     "One day while training, [mc_color] hears a dangerous growl from the nearby bushes."
 
     show protagonist mask surprised at center:
@@ -31,13 +33,17 @@ label a3e1:
 
     menu:
         "Punch tiger":
+            play sound hit5_sfx
+            play music battle1_theme
             call combat("images/tiger.png", 75, 15) from _call_combat_2
     
+    stop music fadeout 1.0
     "As [mc_color] lands one final punch on the tiger, it transforms into a beautiful tiger-girl."
 
     show protagonist mask angry
     mc "Huff, puff... That was a lot tougher than I expected."
 
+    play music woods_theme
     show tessa angry
     cg "Ow... What the hell? Why did you punch me?!"
 
@@ -106,5 +112,6 @@ label a3e1:
 
     "The two of them kept arguing all the way back into town..."
     scene bg black
+    stop music fadeout 1.0
     jump a3e2
     

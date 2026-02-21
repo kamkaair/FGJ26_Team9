@@ -4,6 +4,7 @@ label susanDate:
     scene bg black
     show textBeach
     scene bg beach
+    play music beach_theme
 
     "Protagonist-kun finds Susan at the water's edge. The waves are lapping at her legs quietly as the sun slowly dips over the horizon."
 
@@ -18,34 +19,37 @@ label susanDate:
 
     "The two of them walk along the beach, enjoying the slight seabreeze."
 
-    show susan at left
+    scene bg beach
+    show susan ending at center
+
+    #show susan at left
     sg "Y-you know..."
 
-    show susan at left
+    #show susan at left
     sg "W-when I first met you, I thought you were kind of a jerk..."
 
-    show susan happy at left
+    #show susan happy at left
     sg "B-but now... You've saved so many innocents from the curse. A-and you managed to win the Selection. So, uhm... So I think you're not that bad, actually..."
 
-    show protagonist mask happy at right
+    #show protagonist mask happy at right
     mc "Aww, Slime-chan! You're so sweet!"
 
-    show susan angry at left
+    #show susan angry at left
     sg "{size =-30}Still, I would prefer if you could call me Susan...{size=+30"
 
-    show protagonist mask happy at right
+    #show protagonist mask happy at right
     mc "I'm so glad I could rescue you from the curse! I'm sure you're also happier to be back to normal."
 
-    show susan at left
+    #show susan at left
     sg "Erm... I was never cursed?"
 
-    show protagonist mask surprised at right
+    #show protagonist mask surprised at right
     mc "What?"
 
-    show susan happy at left
+    #show susan happy at left
     sg "I-I mean!! Thank you for saving me! That was very brave of you."
 
-    show protagonist mask happy at right
+    #show protagonist mask happy at right
     mc "You're welcome."
     return
 
@@ -53,6 +57,7 @@ label aylaDate:
     scene bg black
     show textBeach
     scene bg beach
+    play music beach_theme
 
     "As Protagonist-kun scouts the beach, they spot the tall elf enjoying the water by some reeds."
 
@@ -76,10 +81,7 @@ label aylaDate:
     show ayla happy at left
     pg "Sure sure..."
 
-    scene bg beach:
-        xanchor 0 yanchor 0
-        ypos 0 xpos -100
-        zoom 1.5
+    scene bg sunset
     show ayla ending at center
 
     "Something tells Protagonist-kun that Ayla doesn't believe one word they say."
@@ -104,6 +106,7 @@ label evelynDate:
     scene bg black
     show textBeach
     scene bg beach
+    play music beach_theme
 
     "Protagonist-kun watches as Evelyn runs laps along the shoreline. Eventually, she stops."
 
@@ -138,16 +141,19 @@ label evelynDate:
     show evelyn neutral at left
     lg "You know, as weird as you are, I'm still glad I met you." 
 
-    show evelyn neutral at left
+    scene bg sunset
+    show evelyn ending at center
+
+    #show evelyn neutral at left
     lg "I mean, if you didn't save me I would've been stuck as a spider forever. Can you imagine a more horrible fate than that?"
 
-    show protagonist mask at right
+    #show protagonist mask at right
     mc "Not really."
 
-    show evelyn happy at left
+    #show evelyn happy at left
     lg "So. Thank you. For saving me."
 
-    show protagonist mask happy at right
+    #show protagonist mask happy at right
     mc "You're welcome."
     return
 
@@ -155,6 +161,7 @@ label tessaDate:
     scene bg black
     show textBeach
     scene bg beach
+    play music beach_theme
     
     "Protagonist-kun hums as he walks down the beach. He knows that Tessa is waiting for them somewhere on the beach, but so far, they haven't found her."
 
@@ -189,13 +196,16 @@ label tessaDate:
     show protagonist mask happy at right
     mc "You're welcome."
 
-    show tessa angry at left
+    scene bg sunset
+    show tessa ending at center
+
+    #show tessa angry at left
     cg "Don't get the wrong idea! You're still a weird brute who punches people for no reason! You have zero skills with girls and you keep trying to ask us on dates without ever getting to truly know any of us!"
 
-    show protagonist mask sad at right
+    #show protagonist mask sad at right
     mc "Erm- I..!"
 
-    show tessa angry at left
+    #show tessa angry at left
     cg "I- I mean... I-it's not like I like you or anything, baka!"
     return
 
@@ -203,6 +213,7 @@ label truck_kunDate:
     scene bg black
     show textBeach
     scene bg beach
+    play music beach_theme
 
     "Truck-kun is sitting silently on the sand, watching the sun paint the sea orange, as Protagonist-kun approaches him."
 

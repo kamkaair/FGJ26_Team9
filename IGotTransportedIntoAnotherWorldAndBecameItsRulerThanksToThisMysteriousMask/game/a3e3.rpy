@@ -1,5 +1,6 @@
 label a3e3:
     show textTavern
+    play music tavern_theme
     "Click to continue..."
 
     scene bg bar
@@ -64,5 +65,7 @@ label a3e3:
 
     show truck_kun happy at left
     bm "Eh, semantics."
+
+    stop music fadeout 1.0
 
     jump a4e1

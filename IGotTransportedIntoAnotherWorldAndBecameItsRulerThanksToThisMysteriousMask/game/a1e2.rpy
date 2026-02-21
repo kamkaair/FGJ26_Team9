@@ -2,12 +2,15 @@ label a1e2:
     image bg black = "#0b681f"
     image tavern_text = Transform(Text("{color=#efc727} At the tavern..{/color}", size=60), yalign=0.5)
 
+    stop music fadeout 1.0
+
     show bg black
     show tavern_text
     "Click to continue..."
     hide tavern_text
     show bg bar
 
+    play music tavern_theme
     show protagonist mask happy at left
     show susan at right
     mc "Haah… I’m so glad this place has a tavern."
@@ -43,10 +46,11 @@ label a1e2:
     mc "I know right?"
 
     mc "So, [sg_color], shall we go on the first date of my life, culminating in-?"
-
+    stop music fadeout 1.0
     "They get interrupted by a random person bursting into the tavern."
     hide protagonist mask
     hide susan
+    play music battle1_theme
     $ r = Character("Random Civilian")
     r "{size=+10}{b}Someone help! A plant monster has walked straight into town!{/b}{/size}"
 
@@ -85,6 +89,8 @@ label a1e2:
     menu:
         "Punch the plant":
             pass
+
+    play audio hit6_sfx
 
     define plant_hp = 8
 
@@ -145,6 +151,7 @@ label a1e2:
 
 label plant_waifu:
     show white
+    stop music fadeout 1.0
     "As [mc_color] punches the lights out of the plant monster, it transforms into a hot elf waifu!"
 
     hide white with dissolve
@@ -152,7 +159,7 @@ label plant_waifu:
         xalign 0.3
         yalign 1.0 
     hide kasvi
-
+    play music tavern_theme
     pg "Huh… What was I doing..?"
 
     "The tall elf gets up, before setting her sights on [mc_color]."
@@ -266,4 +273,5 @@ label plant_waifu:
             "A member of staff carries them to their room and dumps them on the bed."
             jump a2e1
 
+    stop music fadeout 1.0
 

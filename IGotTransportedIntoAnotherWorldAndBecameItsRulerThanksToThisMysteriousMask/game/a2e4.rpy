@@ -1,6 +1,7 @@
 label a2e4:
     scene bg bar
     with fade
+    play music tavern_theme
 
     "After eating, [mc_color] joins his growing harem in their discussion."
 
@@ -13,7 +14,7 @@ label a2e4:
     show evelyn surprised at evelynPos
     lg "A... Date?"
 
-    show evelyn sad
+    show evelyn surprised
     lg "I don't think it would be appropriate for an idol to date her fan, even if said fan did rescue me."
 
     show ayla neutral at aylaPos
@@ -78,6 +79,7 @@ label a2e4:
     menu:
         "Leave the scene at the tavern, with the girls having surprised expressions":
             scene bg black
+            stop music fadeout 1.0
             "And so our [mc_color] trains. They train, day and night, gaining impossible amounts of strength, every day."
             "Well, you know how anime power leveling works. They're impossibly strong now, even though they haven't changed visually."
             "It's almost as if their earlier lack of stamina has magically disappeared because the writer didn't have the time to actually write them getting fit..."

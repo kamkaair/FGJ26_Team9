@@ -1,5 +1,6 @@
 label a3e2:
     show textTavern
+    play music tavern_theme
     "Click to continue..."
 
     scene bg bar
@@ -10,6 +11,8 @@ label a3e2:
 
     "Time passes by quickly. With four brand new friends in tow, our [mc_color] enters the Town Mayor's Selection."
     "They listen to the cheers from the audience, mentally psyching themself until it's their turn to enter the stage."
+
+    stop music fadeout 1.0
 
     wr "Ok ok ok. Pause! Pause! Everyone, pause!"
 
@@ -29,6 +32,7 @@ label a3e2:
     
     menu:
         "Continue story":
+            play music truck_kun_theme
             ar "And now, for the final fight!!"
             ar "Iiiin the left corner, we have the newcomer, the {color=#dda732}Masked Mystery Man{/color}, the one and only! Theeee [mc_color]!!!"
             wr "What the hell, how did that end up here?!?"
@@ -85,11 +89,15 @@ label a3e2:
 
             menu:
                 "Punch car":
+                    play sound hit5_sfx
+                    play music truck_kun_theme
                     call combat("images/truck.png", 100, 15) from _call_combat_3
                     scene bg black
+                    stop music fadeout 1.0
                     pass
            
         "Flee":
+            stop music fadeout 1.0
             "Protagonist-kun flees the tavern like a coward."
             "They become the laughing stock of the town, and are never taken seriously again."
             return

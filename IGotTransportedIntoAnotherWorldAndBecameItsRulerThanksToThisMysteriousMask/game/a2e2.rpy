@@ -2,7 +2,7 @@ label a2e2:
     image bg black = "#000000"
     image bg whiteFlash = "#ffffff"
     image textForest = Transform(Text("At the forest:", size=60), yalign=0.5)
-
+    play music woods_theme
     scene bg black
     show textForest
     "Click to continue..."
@@ -80,11 +80,14 @@ label a2e2:
 
     menu:
         "Punch it!":
+            play sound hit5_sfx
+            play music battle1_theme
             call combat("images/valo.png", 50, 15) from _call_combat
 
+    stop music fadeout 1.0
     mc "Huh… Turns out you can punch a light."
     "A tiny fairy stands up, her wings glowing the same purple light that had formed the spider mere moments ago."
-
+    play music woods_theme
     show evelyn angry at right:
         xalign 1.1
         yalign 1.0
@@ -141,6 +144,6 @@ label a2e2:
     lg "Yes yes, let’s leave this forest, right now!"
 
     "And so, the two of them make their way back into town."
-
+    stop music fadeout 1.0
     jump a2e3
     

@@ -4,7 +4,7 @@ init:
 label a0e2:
     scene bg fantasy
     with flash
-
+    play music woods_theme
     show protagonist at left
 
     mc "Groan..."
@@ -42,8 +42,10 @@ label a0e2:
             "The mask compels [mc_color]..."
             "They can’t resist it."
 
+    stop music fadeout 1.0
     #[insert sparkle sound effect here]
     #Maybe some other effect
+    
 
     scene bg fantasy # PLACEHOLDER
     with dissolve
@@ -55,6 +57,7 @@ label a0e2:
 
     show protagonist mask surprised at center
 
+    play music woods_theme
     mc "Wait... Is the mask talking to me??"
 
     mk "Yes, I'm talking to you!"
@@ -80,10 +83,11 @@ label a0e2:
 
     menu:
         "Pull at mask":
-            "Unfortunately for our Protagonist-kun…"
+            pass
         "Push at mask":
-            "Unfortunately for our Protagonist-kun…"
-
+            pass
+    play sound hit5_sfx
+    "Unfortunately for our Protagonist-kun…"
     "They can’t get the mask off."
 
     mc "What the hell?!?! Did this thing get super glued to my face???"

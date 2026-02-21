@@ -18,7 +18,7 @@ label a2e3:
 
     scene bg bar
     with dissolve
-
+    play music tavern_theme
     "[sg_color] and [pg_color] are chatting, when [mc_color] and [lg_color] join up with them."
 
     show protagonist mask neutral at protagonistPos
@@ -44,7 +44,7 @@ label a2e3:
         "Go order dinner":
             pass
 
-
+    stop music fadeout 1.0
     scene bg black
     with fade
    

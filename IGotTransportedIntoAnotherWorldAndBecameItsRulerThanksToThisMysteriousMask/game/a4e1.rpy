@@ -1,5 +1,6 @@
 label a4e1:
     scene bg bar
+    play music tavern_theme
     "As the group gathers at the tavern to celebrate Protagonist-kun’s new status as Town Mayor, the sun is slowly setting."
 
     "And with all the world’s evils defeated, our beloved Protagonist-kun decides to finally take their new companions on a date to a nearby beach."
