@@ -129,9 +129,9 @@ screen combatHeightSelect(actionSel, inFunc):
 
             text "Which part do you want to [actionSel]?"
 
-            textbutton "[actionSel] High" action [Function(inFunc, 3), Hide("combatHeightSelect")]
-            textbutton "[actionSel] Mid" action [Function(inFunc, 2), Hide("combatHeightSelect")]
-            textbutton "[actionSel] Low" action [Function(inFunc, 1), Hide("combatHeightSelect")]
+            textbutton "[actionSel] High" action [Play("sound", "hit7_sfx.ogg"), Function(inFunc, 3), Hide("combatHeightSelect")]
+            textbutton "[actionSel] Mid" action [Play("sound", "hit7_sfx.ogg"), Function(inFunc, 2), Hide("combatHeightSelect")]
+            textbutton "[actionSel] Low" action [Play("sound", "hit7_sfx.ogg"), Function(inFunc, 1), Hide("combatHeightSelect")]
                 
 
 label combat(enemySprite, inEnemyHP, inEnemyDamage):
@@ -153,7 +153,7 @@ label combat(enemySprite, inEnemyHP, inEnemyDamage):
 
         if currentTurn == "enemy":
             hide screen combat_ui
-            $ enemy_turn()
+            $ enemy_turn()          
             $ renpy.pause(2.0)
 
         else:
